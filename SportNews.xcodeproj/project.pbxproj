@@ -9,10 +9,13 @@
 /* Begin PBXBuildFile section */
 		0A848E001C2C24B300190FB0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848DFF1C2C24B300190FB0 /* main.m */; };
 		0A848E031C2C24B300190FB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E021C2C24B300190FB0 /* AppDelegate.m */; };
-		0A848E061C2C24B300190FB0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E051C2C24B300190FB0 /* ViewController.m */; };
 		0A848E091C2C24B400190FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E071C2C24B400190FB0 /* Main.storyboard */; };
 		0A848E0B1C2C24B400190FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E0A1C2C24B400190FB0 /* Assets.xcassets */; };
 		0A848E0E1C2C24B400190FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E0C1C2C24B400190FB0 /* LaunchScreen.storyboard */; };
+		0A848E181C2C287000190FB0 /* ASNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E171C2C287000190FB0 /* ASNews.m */; };
+		0A848E1E1C2C289D00190FB0 /* ASServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E1D1C2C289D00190FB0 /* ASServerManager.m */; };
+		0A848E211C2C2A5D00190FB0 /* ASNewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E201C2C2A5D00190FB0 /* ASNewsTVC.m */; };
+		69E210F01AAD5B50F60E50AF /* Pods_SportNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +23,19 @@
 		0A848DFF1C2C24B300190FB0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0A848E011C2C24B300190FB0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0A848E021C2C24B300190FB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0A848E041C2C24B300190FB0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0A848E051C2C24B300190FB0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0A848E081C2C24B400190FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A848E0A1C2C24B400190FB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A848E0D1C2C24B400190FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A848E0F1C2C24B400190FB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A848E161C2C287000190FB0 /* ASNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNews.h; sourceTree = "<group>"; };
+		0A848E171C2C287000190FB0 /* ASNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNews.m; sourceTree = "<group>"; };
+		0A848E1C1C2C289D00190FB0 /* ASServerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASServerManager.h; sourceTree = "<group>"; };
+		0A848E1D1C2C289D00190FB0 /* ASServerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASServerManager.m; sourceTree = "<group>"; };
+		0A848E1F1C2C2A5D00190FB0 /* ASNewsTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewsTVC.h; sourceTree = "<group>"; };
+		0A848E201C2C2A5D00190FB0 /* ASNewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewsTVC.m; sourceTree = "<group>"; };
+		28B69D553D603E59B7B78B14 /* Pods-SportNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportNews/Pods-SportNews.debug.xcconfig"; sourceTree = "<group>"; };
+		560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D121591AE3DF81CA2D2E418A /* Pods-SportNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportNews/Pods-SportNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				69E210F01AAD5B50F60E50AF /* Pods_SportNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +55,8 @@
 			children = (
 				0A848DFD1C2C24B300190FB0 /* SportNews */,
 				0A848DFC1C2C24B300190FB0 /* Products */,
+				2B2B80B77DC2228FC0F1B79B /* Pods */,
+				5805E4E5E53893B2FAF39ACE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,8 +73,9 @@
 			children = (
 				0A848E011C2C24B300190FB0 /* AppDelegate.h */,
 				0A848E021C2C24B300190FB0 /* AppDelegate.m */,
-				0A848E041C2C24B300190FB0 /* ViewController.h */,
-				0A848E051C2C24B300190FB0 /* ViewController.m */,
+				0A848E1A1C2C288300190FB0 /* Server */,
+				0A848E151C2C283A00190FB0 /* Model */,
+				0A848E191C2C287600190FB0 /* Controller */,
 				0A848E071C2C24B400190FB0 /* Main.storyboard */,
 				0A848E0A1C2C24B400190FB0 /* Assets.xcassets */,
 				0A848E0C1C2C24B400190FB0 /* LaunchScreen.storyboard */,
@@ -79,6 +93,50 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0A848E151C2C283A00190FB0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0A848E161C2C287000190FB0 /* ASNews.h */,
+				0A848E171C2C287000190FB0 /* ASNews.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0A848E191C2C287600190FB0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0A848E1F1C2C2A5D00190FB0 /* ASNewsTVC.h */,
+				0A848E201C2C2A5D00190FB0 /* ASNewsTVC.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0A848E1A1C2C288300190FB0 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				0A848E1C1C2C289D00190FB0 /* ASServerManager.h */,
+				0A848E1D1C2C289D00190FB0 /* ASServerManager.m */,
+			);
+			name = Server;
+			sourceTree = "<group>";
+		};
+		2B2B80B77DC2228FC0F1B79B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				28B69D553D603E59B7B78B14 /* Pods-SportNews.debug.xcconfig */,
+				D121591AE3DF81CA2D2E418A /* Pods-SportNews.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5805E4E5E53893B2FAF39ACE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +144,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A848E121C2C24B400190FB0 /* Build configuration list for PBXNativeTarget "SportNews" */;
 			buildPhases = (
+				BA1776CDC5F97969CF38F41B /* Check Pods Manifest.lock */,
 				0A848DF71C2C24B300190FB0 /* Sources */,
 				0A848DF81C2C24B300190FB0 /* Frameworks */,
 				0A848DF91C2C24B300190FB0 /* Resources */,
+				D9C118B8172D7628D1F49ACC /* Embed Pods Frameworks */,
+				51505EE779C17E74E8CC3051 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -144,14 +205,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		51505EE779C17E74E8CC3051 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportNews/Pods-SportNews-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA1776CDC5F97969CF38F41B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D9C118B8172D7628D1F49ACC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SportNews/Pods-SportNews-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A848DF71C2C24B300190FB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A848E061C2C24B300190FB0 /* ViewController.m in Sources */,
+				0A848E181C2C287000190FB0 /* ASNews.m in Sources */,
+				0A848E1E1C2C289D00190FB0 /* ASServerManager.m in Sources */,
 				0A848E031C2C24B300190FB0 /* AppDelegate.m in Sources */,
 				0A848E001C2C24B300190FB0 /* main.m in Sources */,
+				0A848E211C2C2A5D00190FB0 /* ASNewsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,6 +372,7 @@
 		};
 		0A848E131C2C24B400190FB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 28B69D553D603E59B7B78B14 /* Pods-SportNews.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SportNews/Info.plist;
@@ -272,6 +384,7 @@
 		};
 		0A848E141C2C24B400190FB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D121591AE3DF81CA2D2E418A /* Pods-SportNews.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SportNews/Info.plist;
@@ -300,6 +413,7 @@
 				0A848E141C2C24B400190FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
