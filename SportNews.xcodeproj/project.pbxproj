@@ -11,11 +11,13 @@
 		0A848E031C2C24B300190FB0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E021C2C24B300190FB0 /* AppDelegate.m */; };
 		0A848E091C2C24B400190FB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E071C2C24B400190FB0 /* Main.storyboard */; };
 		0A848E0B1C2C24B400190FB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E0A1C2C24B400190FB0 /* Assets.xcassets */; };
-		0A848E0E1C2C24B400190FB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A848E0C1C2C24B400190FB0 /* LaunchScreen.storyboard */; };
 		0A848E181C2C287000190FB0 /* ASNews.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E171C2C287000190FB0 /* ASNews.m */; };
 		0A848E1E1C2C289D00190FB0 /* ASServerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E1D1C2C289D00190FB0 /* ASServerManager.m */; };
 		0A848E211C2C2A5D00190FB0 /* ASNewsTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A848E201C2C2A5D00190FB0 /* ASNewsTVC.m */; };
 		69E210F01AAD5B50F60E50AF /* Pods_SportNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */; };
+		6C02E9C91C2C753C0084768E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E9C81C2C753C0084768E /* SystemConfiguration.framework */; };
+		6C02E9CD1C2C75660084768E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E9CC1C2C75660084768E /* Reachability.m */; };
+		6C02E9D11C2C7A660084768E /* ASNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E9D01C2C7A660084768E /* ASNewsCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,6 @@
 		0A848E021C2C24B300190FB0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A848E081C2C24B400190FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0A848E0A1C2C24B400190FB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0A848E0D1C2C24B400190FB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A848E0F1C2C24B400190FB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A848E161C2C287000190FB0 /* ASNews.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNews.h; sourceTree = "<group>"; };
 		0A848E171C2C287000190FB0 /* ASNews.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNews.m; sourceTree = "<group>"; };
@@ -35,6 +36,11 @@
 		0A848E201C2C2A5D00190FB0 /* ASNewsTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewsTVC.m; sourceTree = "<group>"; };
 		28B69D553D603E59B7B78B14 /* Pods-SportNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SportNews/Pods-SportNews.debug.xcconfig"; sourceTree = "<group>"; };
 		560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SportNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C02E9C81C2C753C0084768E /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6C02E9CB1C2C75660084768E /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6C02E9CC1C2C75660084768E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		6C02E9CF1C2C7A660084768E /* ASNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewsCell.h; sourceTree = "<group>"; };
+		6C02E9D01C2C7A660084768E /* ASNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewsCell.m; sourceTree = "<group>"; };
 		D121591AE3DF81CA2D2E418A /* Pods-SportNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportNews/Pods-SportNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C02E9C91C2C753C0084768E /* SystemConfiguration.framework in Frameworks */,
 				69E210F01AAD5B50F60E50AF /* Pods_SportNews.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				0A848DFD1C2C24B300190FB0 /* SportNews */,
+				6C02E9CA1C2C75660084768E /* Reachability */,
 				0A848DFC1C2C24B300190FB0 /* Products */,
 				2B2B80B77DC2228FC0F1B79B /* Pods */,
 				5805E4E5E53893B2FAF39ACE /* Frameworks */,
@@ -75,10 +83,10 @@
 				0A848E021C2C24B300190FB0 /* AppDelegate.m */,
 				0A848E1A1C2C288300190FB0 /* Server */,
 				0A848E151C2C283A00190FB0 /* Model */,
+				6C02E9CE1C2C7A510084768E /* Custom Cell */,
 				0A848E191C2C287600190FB0 /* Controller */,
 				0A848E071C2C24B400190FB0 /* Main.storyboard */,
 				0A848E0A1C2C24B400190FB0 /* Assets.xcassets */,
-				0A848E0C1C2C24B400190FB0 /* LaunchScreen.storyboard */,
 				0A848E0F1C2C24B400190FB0 /* Info.plist */,
 				0A848DFE1C2C24B300190FB0 /* Supporting Files */,
 			);
@@ -132,9 +140,28 @@
 		5805E4E5E53893B2FAF39ACE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C02E9C81C2C753C0084768E /* SystemConfiguration.framework */,
 				560D2F4B23ED588B88BE3D7F /* Pods_SportNews.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C02E9CA1C2C75660084768E /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				6C02E9CB1C2C75660084768E /* Reachability.h */,
+				6C02E9CC1C2C75660084768E /* Reachability.m */,
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		6C02E9CE1C2C7A510084768E /* Custom Cell */ = {
+			isa = PBXGroup;
+			children = (
+				6C02E9CF1C2C7A660084768E /* ASNewsCell.h */,
+				6C02E9D01C2C7A660084768E /* ASNewsCell.m */,
+			);
+			name = "Custom Cell";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,7 +224,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A848E0E1C2C24B400190FB0 /* LaunchScreen.storyboard in Resources */,
 				0A848E0B1C2C24B400190FB0 /* Assets.xcassets in Resources */,
 				0A848E091C2C24B400190FB0 /* Main.storyboard in Resources */,
 			);
@@ -262,6 +288,8 @@
 				0A848E1E1C2C289D00190FB0 /* ASServerManager.m in Sources */,
 				0A848E031C2C24B300190FB0 /* AppDelegate.m in Sources */,
 				0A848E001C2C24B300190FB0 /* main.m in Sources */,
+				6C02E9D11C2C7A660084768E /* ASNewsCell.m in Sources */,
+				6C02E9CD1C2C75660084768E /* Reachability.m in Sources */,
 				0A848E211C2C2A5D00190FB0 /* ASNewsTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,14 +303,6 @@
 				0A848E081C2C24B400190FB0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0A848E0C1C2C24B400190FB0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0A848E0D1C2C24B400190FB0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -376,6 +396,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SportNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pp.SportNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -388,6 +409,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SportNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pp.SportNews;
 				PRODUCT_NAME = "$(TARGET_NAME)";

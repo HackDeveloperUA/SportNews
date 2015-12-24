@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3BD10371-D960-41CE-919D-63EB2536B77B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SportNews</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E5C00A591AB2E805EB9C3CBCA318F5402F2C9692</key>
+		<string>https://github.com/HackDeveloperUA/SportNews.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SportNews.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E5C00A591AB2E805EB9C3CBCA318F5402F2C9692</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/HackDeveloperUA/SportNews.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E5C00A591AB2E805EB9C3CBCA318F5402F2C9692</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E5C00A591AB2E805EB9C3CBCA318F5402F2C9692</string>
+			<key>IDESourceControlWCCName</key>
+			<string>SportNews</string>
+		</dict>
+	</array>
+</dict>
+</plist>
