@@ -10,10 +10,13 @@
 #import "FEMDeserializer.h"
 #import "ASNews.h"
 
+
+#define sportNewsCategory @"208"
+
 @interface ASServerManager ()
 
 @property (strong, nonatomic) AFHTTPRequestOperationManager* requestOperationManager;
-@property (strong,nonatomic) dispatch_queue_t requestQueue;
+@property (strong, nonatomic) dispatch_queue_t requestQueue;
 
 @end
 
@@ -35,7 +38,7 @@
     
     self = [super init];
     if (self) {
-        self.requestQueue = dispatch_queue_create("iOSDevCourse.requestVk", DISPATCH_QUEUE_PRIORITY_DEFAULT);
+        self.requestQueue = dispatch_queue_create("sportNews.requestNews", DISPATCH_QUEUE_PRIORITY_DEFAULT);
         self.requestOperationManager = [[AFHTTPRequestOperationManager alloc]initWithBaseURL:[NSURL URLWithString:@""]];
     }
     return self;
@@ -46,44 +49,53 @@
                          count:(NSInteger) count
              onSuccess:(void(^)(NSArray* news)) success
              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
-   
     
     // Локальная загрузка
     
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"calverJson2" ofType:@".json"];
     NSData*   data     = [NSData dataWithContentsOfFile:filePath];
     NSError*  error = nil;
-    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data
-                                                           options:kNilOptions error:&error];
+    NSDictionary* result = [NSJSONSerialization JSONObjectWithData:data   options:kNilOptions error:&error];
     
     NSArray*  items  = [result  objectForKey:@"news"];
     NSMutableArray* objectsArray = [NSMutableArray array];
     
     for (NSDictionary* dict in items) {
         ASNews* news = [[ASNews alloc] initWithServerResponse:dict];
+        
+        if ([news.category_id isEqualToString:sportNewsCategory]) {
         [objectsArray addObject:news];
+        }
     }
     success(objectsArray);
     
-
+    //
+    
+    
     NSDictionary* params = @{};
     [self.requestOperationManager GET:@"https://copy.com/0HHJnviugOy2w3xd" //@"https://copy.com/IUBJAfnOAYKAQJtC" //@"https://copy.com/nbuaOKqPZJuBFUnR" //@"http://calvera.su/5839.json"
                            parameters:params
                               success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
             
     
-                                  /*
                                   NSArray*  items  = [responseObject  objectForKey:@"news"];
                                   NSMutableArray* objectsArray = [NSMutableArray array];
                                   
                                   for (NSDictionary* dict in items) {
                                       ASNews* news = [[ASNews alloc] initWithServerResponse:dict];
-                                      [objectsArray addObject:news];
+                                      
+                                      // Нам нужны только новости с категорией 208
+                                      if ([news.category_id isEqualToString:sportNewsCategory]) {
+                                          [objectsArray addObject:news];
+                                      }
                                   }
                                   success(objectsArray);
-                                  */
                                   
-                                  /*if (responseObject){
+                                  
+                                  /*
+                                   // Mapping
+                                   
+                                   if (responseObject){
                                       FEMMapping *objectMapping = [ASNews defaultMapping];
                                       NSArray* modelsArray = [FEMDeserializer collectionFromRepresentation:responseObject[@"news"] mapping:objectMapping];
                                       

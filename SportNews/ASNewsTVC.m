@@ -18,6 +18,7 @@
 #import <SystemConfiguration/SCNetworkReachability.h>
 #import "Reachability.h"
 
+#define sportNewsCategory @"208"
 
 /// Поправить
 typedef NS_ENUM(NSInteger, ASSortedSegment) {
@@ -150,14 +151,23 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
            ASNews* news = self.arraySportNews[indexPath.row];
              
              ANDispatchBlockToMainQueue(^{
-                 cell.dateLabel.text = news.posted_time;
+                  cell.dateLabel.text = news.posted_time;
+                 
+                 // Если главная новость - выбираем жирный шрифт
                  if (news.main) {
                      [cell.mainLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:16]];
                  } else {
                      [cell.mainLabel setFont:[UIFont fontWithName:@"System-Font" size:16]];
                  }
                  
-                 cell.categoryLabel.text = news.category_id;
+                 // Если категори id равен 208 - ставим в лейбл "Футбол"
+                
+                 if ([news.category_id isEqualToString:sportNewsCategory]) {
+                    cell.categoryLabel.text = @"Футбол";
+                 } else {
+                    cell.categoryLabel.text = news.category_id;
+                 }
+                 
                  cell.mainLabel.text   = news.title;
                  NSString *number = @(news.comment_count).stringValue;
                  [cell.commentButton setTitle:number forState:UIControlStateNormal];
@@ -165,18 +175,6 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
              
          });
         return cell;
-    
-    
-    /*
-        static NSString *CellIdentifier = @"Cell";
-        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-        if (cell == nil) {
-            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
-        }
-        //cell.textLabel.text = [NSString stringWithFormat:@"index %ld",(long)indexPath.row];
-        cell.textLabel.text = [self.arraySportNews[indexPath.row] valueForKey:@"title"];
-        return cell;
-     */
 }
 
 
