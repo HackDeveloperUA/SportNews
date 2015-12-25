@@ -22,13 +22,12 @@
 
 /// Поправить
 typedef NS_ENUM(NSInteger, ASSortedSegment) {
-    ASSortedByVozrastan = 0,
-    ASSortedUbyvan      = 1,
+    ASSortedAscending = 0,
+    ASSortedDescending      = 1,
 };
 
 
-
-@interface ASNewsTVC () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MBProgressHUDDelegate>
+@interface ASNewsTVC () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate>
 
 @property (weak,   nonatomic) IBOutlet UISegmentedControl *segmentControll;
 @property (strong, nonatomic) MBProgressHUD *HUD;
@@ -41,70 +40,45 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
 
 @implementation ASNewsTVC
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.arraySportNews = [NSMutableArray array];
-    self.sortedMask     = ASSortedByVozrastan;
+    self.sortedMask     = ASSortedDescending;
+    self.segmentControll.selectedSegmentIndex = ASSortedDescending;
     
-    // Потом поставить if (![self isInternetConnection])
-    if ([self isInternetConnection]) {
+    if (![self isInternetConnection]) {
         ANDispatchBlockToBackgroundQueue(^{
             [self getSportNewsFromServer];
         });
     }
 }
 
--(void) sortingByAscending:(BOOL) isAscending {
-    
-    ANDispatchBlockToBackgroundQueue(^{
-        NSSortDescriptor* sortByTime  = [NSSortDescriptor sortDescriptorWithKey:@"posted_time"  ascending:isAscending];
-        [self.arraySportNews sortUsingDescriptors:[NSArray arrayWithObjects:sortByTime,nil]];
-        
-        ANDispatchBlockToMainQueue(^{
-            [self.tableView reloadData];
-        });
-    });
-}
 
-- (IBAction)segmentControlAction:(UISegmentedControl *)sender {
-    
-    if (sender.selectedSegmentIndex == ASSortedByVozrastan) {
-        [self sortingByAscending:YES];
-    } else if (sender.selectedSegmentIndex == ASSortedUbyvan) {
-        [self sortingByAscending:NO];
-    }
-}
 
 
 #pragma mark - Server
+
 -(void) getSportNewsFromServer{
+    
     
     [[ASServerManager sharedManager] getSportNewsWithOffset:[self.arraySportNews count] count:20 onSuccess:^(NSArray *news) {
         
         if ([news count] > 0) {
-            
             [self.arraySportNews addObjectsFromArray:news];
             
-            NSMutableArray* newPaths = [NSMutableArray array];
-            for (int i = (int)[self.arraySportNews count] - (int)[news count]; i < [self.arraySportNews count]; i++){
-                [newPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
-            }
-            
             ANDispatchBlockToMainQueue(^{
-                [self.tableView beginUpdates];
-                [self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationTop];
-                [self.tableView endUpdates];
-                
-                self.loadingData = NO;
+                [self.tableView reloadData];
+                 self.loadingData = NO;
             });
         }
-        
     } onFailure:^(NSError *error, NSInteger statusCode) {
         NSLog(@"Error = %@ \n statusCode = %ld",error,(long)statusCode);
     }];
   
 }
+
 
 #pragma mark - UIScrollViewDelegate
 
@@ -114,8 +88,9 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
         if (!self.loadingData)
         {
             self.loadingData = YES;
-            ANDispatchBlockToBackgroundQueue(^{
-                [self getSportNewsFromServer];
+             ANDispatchBlockToBackgroundQueue(^{
+                 // Подгружаем порциями
+                 // [self getSportNewsFromServer];
             });
         }
     }
@@ -147,12 +122,13 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
         }
 
          ANDispatchBlockToBackgroundQueue(^{
-            
-           ASNews* news = self.arraySportNews[indexPath.row];
+         ASNews* news = self.arraySportNews[indexPath.row];
              
              ANDispatchBlockToMainQueue(^{
-                  cell.dateLabel.text = news.posted_time;
                  
+                  cell.dateLabel.text = news.posted_time;
+                  cell.mainLabel.text   = news.title;
+
                  // Если главная новость - выбираем жирный шрифт
                  if (news.main) {
                      [cell.mainLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:16]];
@@ -161,24 +137,46 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
                  }
                  
                  // Если категори id равен 208 - ставим в лейбл "Футбол"
-                
                  if ([news.category_id isEqualToString:sportNewsCategory]) {
                     cell.categoryLabel.text = @"Футбол";
                  } else {
                     cell.categoryLabel.text = news.category_id;
                  }
                  
-                 cell.mainLabel.text   = news.title;
                  NSString *number = @(news.comment_count).stringValue;
                  [cell.commentButton setTitle:number forState:UIControlStateNormal];
              });
-             
          });
         return cell;
 }
 
 
+#pragma mark - Action
+
+-(void) sortingByAscending:(BOOL) isAscending {
+    
+    ANDispatchBlockToBackgroundQueue(^{
+        NSSortDescriptor* sortByTime  = [NSSortDescriptor sortDescriptorWithKey:@"posted_time"  ascending:isAscending];
+        [self.arraySportNews sortUsingDescriptors:[NSArray arrayWithObjects:sortByTime,nil]];
+        
+        ANDispatchBlockToMainQueue(^{
+            [self.tableView reloadData];
+        });
+    });
+}
+
+- (IBAction)segmentControlAction:(UISegmentedControl *)sender {
+    
+    if (sender.selectedSegmentIndex == ASSortedAscending) {
+        [self sortingByAscending:YES];
+    } else if (sender.selectedSegmentIndex == ASSortedDescending) {
+        [self sortingByAscending:NO];
+    }
+}
+
+
 #pragma mark - Other
+
 -(BOOL) isInternetConnection {
     
     Reachability *networkReachability = [Reachability reachabilityForInternetConnection];

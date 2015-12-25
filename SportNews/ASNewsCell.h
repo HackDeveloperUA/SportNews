@@ -13,6 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 
-@property (weak, nonatomic) IBOutlet UILabel *mainLabel;
+@property (weak, nonatomic) IBOutlet UILabel  *mainLabel;
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
 @end

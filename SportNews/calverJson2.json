@@ -35,6 +35,32 @@
             "comment_count": 47,
             "main": true,
             "link": "http://www.sports.ru/football/149190604.html"
-        }
+        },
+             
+             {
+             "id": 1369393450,
+             "title": "Успешно прошел ежегодный чемпионат по Американскому футболу",
+             "content": "В прошедшие выходные 18-19 января состоялись заключительные игры где Alex Skutarenko забил 16 голов!",
+             "class"  : "Sports::News",
+             "nick"   : null,
+             "category_id": 208,
+             "posted_time": 1369393140,
+             "comment_count": 27,
+             "main": false,
+             "link": "http://www.sports.ru/football/149190604.html"
+             },
+             
+             {
+             "id": 1369393450,
+             "title": "Хокейная команда Канады заняла первое место !",
+             "content": "В прошедшие выходные 18-19 января состоялись заключительные игры где Alex Skutarenko забил 16 голов!",
+             "class"  : "Sports::News",
+             "nick"   : null,
+             "category_id": 208,
+             "posted_time": 1369353140,
+             "comment_count": 10,
+             "main": false,
+             "link": "http://www.sports.ru/football/149190604.html"
+             }
     ]
 }
