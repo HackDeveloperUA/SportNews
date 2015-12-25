@@ -11,6 +11,8 @@
 #import "SCLAlertView.h"
 #import "ASServerManager.h"
 #import "ASNewsCell.h"
+#import "ANHelperFunctions.h"
+#import "ASNews.h"
 
 #import <SystemConfiguration/SystemConfiguration.h>
 #import <SystemConfiguration/SCNetworkReachability.h>
@@ -29,9 +31,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.arraySportNews = [NSMutableArray array];
+    
     if ([self isInternetConnection]) {
-        [self getSportNewsFromServer];
+        ANDispatchBlockToBackgroundQueue(^{
+            [self getSportNewsFromServer];
+        });
     }
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self sorting];
+    });
+    
+}
+
+-(void) sorting {
+    
+    
+    ANDispatchBlockToBackgroundQueue(^{
+        NSSortDescriptor* sortByTime  = [NSSortDescriptor sortDescriptorWithKey:@"posted_time"  ascending:YES];
+        [self.arraySportNews sortUsingDescriptors:[NSArray arrayWithObjects:sortByTime,nil]];
+        
+        ANDispatchBlockToMainQueue(^{
+            [self.tableView reloadData];
+        });
+    });
+    
 }
 
 
@@ -49,11 +74,13 @@
                 [newPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
             }
             
-            [self.tableView beginUpdates];
-            [self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationTop];
-            [self.tableView endUpdates];
-            
-            self.loadingData = NO;
+            ANDispatchBlockToMainQueue(^{
+                [self.tableView beginUpdates];
+                [self.tableView insertRowsAtIndexPaths:newPaths withRowAnimation:UITableViewRowAnimationTop];
+                [self.tableView endUpdates];
+                
+                self.loadingData = NO;
+            });
         }
         
     } onFailure:^(NSError *error, NSInteger statusCode) {
@@ -70,16 +97,17 @@
         if (!self.loadingData)
         {
             self.loadingData = YES;
-            [self getSportNewsFromServer];
+            ANDispatchBlockToBackgroundQueue(^{
+                [self getSportNewsFromServer];
+            });
         }
     }
 }
 
-
 #pragma mark - UITableViewDataSource
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 117.f;
+    return 149.f;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -90,28 +118,49 @@
     return [self.arraySportNews count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-        /*
-        static NSString* identifier = @"ASListFineCell";
+
+        static NSString* identifier = @"ASNewsCell";
         
-        ASListFineCell *cell = (ASListFineCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
+        ASNewsCell *cell = (ASNewsCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
-            cell = (ASListFineCell*)[[ASListFineCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
-        }*/
-        
+            cell = (ASNewsCell*)[[ASNewsCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        }
+
+         ANDispatchBlockToBackgroundQueue(^{
+            
+             ASNews* news = self.arraySportNews[indexPath.row];
+             
+             ANDispatchBlockToMainQueue(^{
+                 cell.dateLabel.text = news.posted_time;
+                 if (news.main) {
+                     [cell.mainLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:16]];
+                 } else {
+                     [cell.mainLabel setFont:[UIFont fontWithName:@"System-Font" size:16]];
+                 }
+                 
+                 cell.categoryLabel.text = news.category_id;
+                 cell.mainLabel.text   = news.title;
+                 NSString *number = @(news.comment_count).stringValue;
+                 [cell.commentButton setTitle:number forState:UIControlStateNormal];
+             });
+             
+         });
+        return cell;
+    
+    
+    /*
         static NSString *CellIdentifier = @"Cell";
-        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
         }
-        
-        cell.textLabel.text = [NSString stringWithFormat:@"index %ld",(long)indexPath.row];
+        //cell.textLabel.text = [NSString stringWithFormat:@"index %ld",(long)indexPath.row];
+        cell.textLabel.text = [self.arraySportNews[indexPath.row] valueForKey:@"title"];
         return cell;
-
+     */
 }
 
 

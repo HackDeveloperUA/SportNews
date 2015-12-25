@@ -7,6 +7,7 @@
 //
 
 #import "ASServerManager.h"
+#import "FEMDeserializer.h"
 #import "ASNews.h"
 
 @interface ASServerManager ()
@@ -45,36 +46,30 @@
                          count:(NSInteger) count
              onSuccess:(void(^)(NSArray* news)) success
              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
-    /*
-     NSString *requestString = @"http://calvera.su/5839.json";
-     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:requestString]];
-     NSError *error;
-     NSDictionary *arrayJSON = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-     
-     
-     
-     NSDictionary* params = @{};
-     NSData   *jsonData = [NSJSONSerialization dataWithJSONObject:params options:0 error:nil];
-     NSString *parametersString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-     
-     [self.requestOperationManager GET:@"http://calvera.su/5839.json"
-     parameters:@{@"setting" : parametersString}
-     success:^(AFHTTPRequestOperation *operation, id responseObject) {
-     // code
-     
-     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-     /// code
-     }];*/
-    
+   
+
     NSDictionary* params = @{};
-    [self.requestOperationManager GET:@"https://copy.com/P6VPnVncesxVayHT"//@"http://calvera.su/5839.json"
-                           parameters:nil//params
+    [self.requestOperationManager GET:@"https://copy.com/0HHJnviugOy2w3xd" //@"https://copy.com/IUBJAfnOAYKAQJtC" //@"https://copy.com/nbuaOKqPZJuBFUnR" //@"http://calvera.su/5839.json"
+                           parameters:params
                               success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
-                
+            
+                                  
+                                  NSArray*  items  = [responseObject  objectForKey:@"news"];
                                   NSMutableArray* objectsArray = [NSMutableArray array];
-                                  if (success) {
-                                      success(objectsArray);
+                                  
+                                  for (NSDictionary* dict in items) {
+                                      ASNews* news = [[ASNews alloc] initWithServerResponse:dict];
+                                      [objectsArray addObject:news];
                                   }
+                                  success(objectsArray);
+
+                                  /*if (responseObject){
+                                      FEMMapping *objectMapping = [ASNews defaultMapping];
+                                      NSArray* modelsArray = [FEMDeserializer collectionFromRepresentation:responseObject[@"news"] mapping:objectMapping];
+                                      
+                                      success(modelsArray);
+                                  }*/
+                          
                               }
                               failure:^(AFHTTPRequestOperation *operation, NSError* error){
                                   NSLog(@"Error: %@",error);

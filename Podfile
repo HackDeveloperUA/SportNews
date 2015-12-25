@@ -8,4 +8,5 @@ target ‘SportNews’ do
   pod 'SCLAlertView-Objective-C'
   pod 'MBProgressHUD', '~> 0.9.2'
   pod 'ANHelperFunctions'
+  pod 'FastEasyMapping', '~> 1.0.1'
 end
