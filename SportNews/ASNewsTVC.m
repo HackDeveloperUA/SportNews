@@ -18,11 +18,23 @@
 #import <SystemConfiguration/SCNetworkReachability.h>
 #import "Reachability.h"
 
-@interface ASNewsTVC () <UITableViewDataSource, UITableViewDelegate,UIScrollViewDelegate,MBProgressHUDDelegate>
 
-@property (strong, nonatomic) NSMutableArray* arraySportNews;
-@property (assign, nonatomic) BOOL loadingData;
+/// Поправить
+typedef NS_ENUM(NSInteger, ASSortedSegment) {
+    ASSortedByVozrastan = 0,
+    ASSortedUbyvan      = 1,
+};
+
+
+
+@interface ASNewsTVC () <UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate, MBProgressHUDDelegate>
+
+@property (weak,   nonatomic) IBOutlet UISegmentedControl *segmentControll;
 @property (strong, nonatomic) MBProgressHUD *HUD;
+
+@property (assign, nonatomic) ASSortedSegment* sortedMask;
+@property (strong, nonatomic) NSMutableArray*  arraySportNews;
+@property (assign, nonatomic) BOOL loadingData;
 
 @end
 
@@ -32,31 +44,35 @@
     [super viewDidLoad];
     
     self.arraySportNews = [NSMutableArray array];
+    self.sortedMask     = ASSortedByVozrastan;
     
+    // Потом поставить if (![self isInternetConnection])
     if ([self isInternetConnection]) {
         ANDispatchBlockToBackgroundQueue(^{
             [self getSportNewsFromServer];
         });
     }
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self sorting];
-    });
-    
 }
 
--(void) sorting {
-    
+-(void) sortingByAscending:(BOOL) isAscending {
     
     ANDispatchBlockToBackgroundQueue(^{
-        NSSortDescriptor* sortByTime  = [NSSortDescriptor sortDescriptorWithKey:@"posted_time"  ascending:YES];
+        NSSortDescriptor* sortByTime  = [NSSortDescriptor sortDescriptorWithKey:@"posted_time"  ascending:isAscending];
         [self.arraySportNews sortUsingDescriptors:[NSArray arrayWithObjects:sortByTime,nil]];
         
         ANDispatchBlockToMainQueue(^{
             [self.tableView reloadData];
         });
     });
+}
+
+- (IBAction)segmentControlAction:(UISegmentedControl *)sender {
     
+    if (sender.selectedSegmentIndex == ASSortedByVozrastan) {
+        [self sortingByAscending:YES];
+    } else if (sender.selectedSegmentIndex == ASSortedUbyvan) {
+        [self sortingByAscending:NO];
+    }
 }
 
 
@@ -118,11 +134,11 @@
     return [self.arraySportNews count];
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-
         static NSString* identifier = @"ASNewsCell";
-        
+    
         ASNewsCell *cell = (ASNewsCell*)[tableView dequeueReusableCellWithIdentifier:identifier];
         
         if (cell == nil) {
@@ -131,7 +147,7 @@
 
          ANDispatchBlockToBackgroundQueue(^{
             
-             ASNews* news = self.arraySportNews[indexPath.row];
+           ASNews* news = self.arraySportNews[indexPath.row];
              
              ANDispatchBlockToMainQueue(^{
                  cell.dateLabel.text = news.posted_time;

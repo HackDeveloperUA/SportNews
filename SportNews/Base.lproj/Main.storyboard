@@ -86,7 +86,24 @@
                             <outlet property="delegate" destination="7IE-9B-eTK" id="LIi-OY-m20"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Спорт.Новости" id="rJZ-O2-ys1"/>
+                    <navigationItem key="navigationItem" title="Спорт.Новости" id="rJZ-O2-ys1">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Ygf-UM-GDD">
+                            <segmentedControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="aW4-6c-YNG">
+                                <rect key="frame" x="-61" y="-14" width="133" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="По возр."/>
+                                    <segment title="По убыв."/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentControlAction:" destination="7IE-9B-eTK" eventType="valueChanged" id="TCg-99-mBi"/>
+                                </connections>
+                            </segmentedControl>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="segmentControll" destination="aW4-6c-YNG" id="eoV-6R-3GU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kYe-P7-96I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

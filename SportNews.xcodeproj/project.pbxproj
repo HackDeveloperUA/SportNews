@@ -18,6 +18,7 @@
 		6C02E9C91C2C753C0084768E /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C02E9C81C2C753C0084768E /* SystemConfiguration.framework */; };
 		6C02E9CD1C2C75660084768E /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E9CC1C2C75660084768E /* Reachability.m */; };
 		6C02E9D11C2C7A660084768E /* ASNewsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C02E9D01C2C7A660084768E /* ASNewsCell.m */; };
+		6C02E9D31C2D315E0084768E /* calverJson2.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C02E9D21C2D315E0084768E /* calverJson2.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		6C02E9CC1C2C75660084768E /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		6C02E9CF1C2C7A660084768E /* ASNewsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASNewsCell.h; sourceTree = "<group>"; };
 		6C02E9D01C2C7A660084768E /* ASNewsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASNewsCell.m; sourceTree = "<group>"; };
+		6C02E9D21C2D315E0084768E /* calverJson2.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calverJson2.json; sourceTree = "<group>"; };
 		D121591AE3DF81CA2D2E418A /* Pods-SportNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SportNews.release.xcconfig"; path = "Pods/Target Support Files/Pods-SportNews/Pods-SportNews.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 		0A848DFD1C2C24B300190FB0 /* SportNews */ = {
 			isa = PBXGroup;
 			children = (
+				6C02E9D21C2D315E0084768E /* calverJson2.json */,
 				0A848E011C2C24B300190FB0 /* AppDelegate.h */,
 				0A848E021C2C24B300190FB0 /* AppDelegate.m */,
 				0A848E1A1C2C288300190FB0 /* Server */,
@@ -226,6 +229,7 @@
 			files = (
 				0A848E0B1C2C24B400190FB0 /* Assets.xcassets in Resources */,
 				0A848E091C2C24B400190FB0 /* Main.storyboard in Resources */,
+				6C02E9D31C2D315E0084768E /* calverJson2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
