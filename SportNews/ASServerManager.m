@@ -49,9 +49,10 @@
              onFailure:(void(^)(NSError* error, NSInteger statusCode)) failure {
     
  
-    
+    //@"http://calvera.su/5839.json" - Этот json битый
+    //@"https://copy.com/Ad9trxOYHcrljzgJ" - Переписал его с нуля
     NSDictionary* params = @{};
-    [self.requestOperationManager GET:@"https://copy.com/0HHJnviugOy2w3xd"  //@"http://calvera.su/5839.json"
+    [self.requestOperationManager GET:@"https://copy.com/Ad9trxOYHcrljzgJ"  //@"http://calvera.su/5839.json"
                            parameters:params
                               success:^(AFHTTPRequestOperation *operation, NSDictionary* responseObject) {
             

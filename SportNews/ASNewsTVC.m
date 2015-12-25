@@ -22,8 +22,8 @@
 
 /// Поправить
 typedef NS_ENUM(NSInteger, ASSortedSegment) {
-    ASSortedAscending = 0,
-    ASSortedDescending      = 1,
+    ASSortedAscending  = 0,
+    ASSortedDescending = 1,
 };
 
 
@@ -48,7 +48,7 @@ typedef NS_ENUM(NSInteger, ASSortedSegment) {
     self.sortedMask     = ASSortedDescending;
     self.segmentControll.selectedSegmentIndex = ASSortedDescending;
     
-    if (![self isInternetConnection]) {
+    if ([self isInternetConnection]) {
         ANDispatchBlockToBackgroundQueue(^{
             [self getSportNewsFromServer];
         });
